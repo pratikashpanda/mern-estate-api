@@ -8,6 +8,7 @@ dotenv.config();
 
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
+import listingRouter from "./routes/listing.route.js"
 
 //DATABASE
 mongoose
@@ -18,11 +19,12 @@ mongoose
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(cookieParser())
+app.use(cookieParser());
 
 //ROUTES
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/listing", listingRouter);
 
 //MIDDLEWARES
 app.use((err, req, res, next) => {
